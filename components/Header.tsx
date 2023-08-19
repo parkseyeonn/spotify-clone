@@ -95,7 +95,7 @@ const Header: React.FC<HeaderProps> = ({ children, className }) => {
             <HiHome className='text-black' size='20' />
           </button>
           <button
-            onClick={() => router.push("/")}
+            onClick={() => router.push("/search")}
             className='
               rounded-full
               p-2

@@ -25,13 +25,13 @@ const LikedContent: React.FC<LikedContentProps> = ({ songs }) => {
     return (
       <div
         className='
-        flex
-        flex-col
-        gap-y-2
-        w-full
-        px-6
-        text-neutral-400
-      '
+          flex
+          flex-col
+          gap-y-2
+          w-full
+          px-6
+          text-neutral-400
+        '
       >
         No liked songs.
       </div>

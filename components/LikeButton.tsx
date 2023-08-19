@@ -29,7 +29,7 @@ const LikeButton: React.FC<LikeButtonProps> = ({ songId }) => {
 
     const fetchData = async () => {
       const { data, error } = await supabaseClient
-        .from("liked_song")
+        .from("like_songs")
         .select("*")
         .eq("user_id", user.id)
         .eq("song_id", songId)
@@ -52,7 +52,7 @@ const LikeButton: React.FC<LikeButtonProps> = ({ songId }) => {
 
     if (isLiked) {
       const { error } = await supabaseClient
-        .from("liked_songs")
+        .from("like_songs")
         .delete()
         .eq("user_id", user.id)
         .eq("song_id", songId);
@@ -63,7 +63,7 @@ const LikeButton: React.FC<LikeButtonProps> = ({ songId }) => {
         setIsLiked(false);
       }
     } else {
-      const { error } = await supabaseClient.from("liked_songs").insert({
+      const { error } = await supabaseClient.from("like_songs").insert({
         song_id: songId,
         user_id: user.id,
       });
