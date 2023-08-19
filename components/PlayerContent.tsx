@@ -74,6 +74,14 @@ const PlayerContent: React.FC<PlayerContentProps> = ({ song, songUrl }) => {
     };
   }, [sound]);
 
+  const handlePlay = () => {
+    isPlaying ? pause() : play();
+  };
+
+  const toggleMute = () => {
+    setVolume(volume === 0 ? 1 : 0);
+  };
+
   return (
     <div
       className='
@@ -112,7 +120,7 @@ const PlayerContent: React.FC<PlayerContentProps> = ({ song, songUrl }) => {
         '
       >
         <div
-          onClick={() => {}}
+          onClick={handlePlay}
           className='
             h-10
             w-10
@@ -152,7 +160,7 @@ const PlayerContent: React.FC<PlayerContentProps> = ({ song, songUrl }) => {
           '
         />
         <div
-          onClick={() => {}}
+          onClick={handlePlay}
           className='
             flex
             items-center
@@ -195,8 +203,12 @@ const PlayerContent: React.FC<PlayerContentProps> = ({ song, songUrl }) => {
           w-[120px]
         '
         >
-          <VolumeIcon onClick={() => {}} className='cursor-pointer' size={34} />
-          <Slider />
+          <VolumeIcon
+            onClick={toggleMute}
+            className='cursor-pointer'
+            size={34}
+          />
+          <Slider value={volume} onChange={(value) => setVolume(value)} />
         </div>
       </div>
     </div>
